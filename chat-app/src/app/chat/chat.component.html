@@ -11,21 +11,22 @@
     <button id="send" (click)="sendMessage()">Send</button>
 </label>
 
+<!-- Error Message -->
+<p style="color: red;">{{error}}</p>
+
 <!-- Chat Messages -->
 <h1> Chat Room: Mystic-1-4-U </h1>
 
 <div *ngFor="let message of messages">
-    <table>
+    <table class="styled-table">
+    
         <tbody>
             <tr>
-                <td>{{message.screenName}}</td>
-                <td>{{message.message}}</td>
+                <td>{{message.screenName}}</td> 
+                <td>{{message.message}}</td> 
                 <td>{{message.timestamp}}</td>
             </tr>
         </tbody>
 
     </table>
 </div>
-
-<!-- Error Message -->
-<p style="color: red;">{{error}}</p>
