@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { IChat } from '../model/chat.model';
+import { ChatService } from '../service/chat.service';
 
 @Component({
   selector: 'app-chat',
@@ -9,13 +10,13 @@ import { IChat } from '../model/chat.model';
 })
 export class ChatComponent implements OnInit {
   message: string = '';
-  messages: IChat[] = messages;
+  messages: IChat[] = [];
   error: string = '';
 
-  constructor() { }
+  constructor(private chatService: ChatService) { }
 
   ngOnInit(): void {
-    
+    this.messages = this.chatService.getMessage();
   }
 
   public sendMessage(): void {
@@ -37,72 +38,3 @@ export class ChatComponent implements OnInit {
   }
   
 }
-
-const messages: IChat[] = [
-    {
-       "message":"hello this is brad in class 2022-11-11",
-       "timestamp":"2022-11-11T20:49:51.495Z",
-       "chatRoom":"Mystic-1-4-U",
-       "screenName":"bradmoon"
-    },
-    {
-       "screenName":"Alex",
-       "timestamp":"2022-01-20T21:26:59.709Z",
-       "message":"Hy",
-       "chatRoom":"Mystic-1-4-U"
-    },
-    {
-       "chatRoom":"Mystic-1-4-U",
-       "timestamp":"2022-01-20T20:49:51.495Z",
-       "message":"Hello world",
-       "screenName":"Hamid"
-    },
-    {
-       "message":"I am batman.",
-       "timestamp":"2021-10-04T16:56:17.773Z",
-       "chatRoom":"Mystic-1-4-U",
-       "screenName":"Henok"
-    },
-    {
-       "message":"Hi",
-       "screenName":"Henok",
-       "chatRoom":"Mystic-1-4-U",
-       "timestamp":"2021-10-04T16:54:43.419Z"
-    },
-    {
-       "timestamp":"2021-10-04T16:51:20.083Z",
-       "screenName":"Henok",
-       "message":"Hello",
-       "chatRoom":"Mystic-1-4-U"
-    },
-    {
-       "screenName":"TEST -JO",
-       "timestamp":"2021-10-04T15:29:21.452Z",
-       "chatRoom":"Mystic-1-4-U",
-       "message":"heyy agiain"
-    },
-    {
-       "message":"heyyyyy",
-       "chatRoom":"Mystic-1-4-U",
-       "screenName":"TEST -JO",
-       "timestamp":"2021-10-04T15:24:51.553Z"
-    },
-    {
-       "screenName":"TEST -JO",
-       "chatRoom":"Mystic-1-4-U",
-       "timestamp":"2021-10-04T15:23:43.931Z",
-       "message":"heyy"
-    },
-    {
-       "chatRoom":"Mystic-1-4-U",
-       "timestamp":"2021-10-04T03:09:34.703Z",
-       "screenName":"anotherUSerrrr",
-       "message":"hello this is a test from a team #4"
-    },
-    {
-       "screenName":"ddf",
-       "chatRoom":"Mystic-1-4-U",
-       "timestamp":"2021-10-03T21:11:58.167Z",
-       "message":"one last message"
-    }
- ];
