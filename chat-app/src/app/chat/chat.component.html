@@ -1,1 +1,31 @@
 <p>chat works!</p>
+
+<!-- Chat Room -->
+
+<!-- Chat Input -->
+<label for="message">Message</label>
+<input type="text" id="message" name="message" [(ngModel)]="message" placeholder="message..." required>
+
+<!-- Send Button -->
+<label for="send">
+    <button id="send" (click)="sendMessage()">Send</button>
+</label>
+
+<!-- Chat Messages -->
+<h1> Chat Room: Mystic-1-4-U </h1>
+
+<div *ngFor="let message of messages">
+    <table>
+        <tbody>
+            <tr>
+                <td>{{message.screenName}}</td>
+                <td>{{message.message}}</td>
+                <td>{{message.timestamp}}</td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
+
+<!-- Error Message -->
+<p style="color: red;">{{error}}</p>
