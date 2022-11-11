@@ -20,4 +20,8 @@ describe('ChatComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('List message should not be empty', () => {
+    expect(component.messages.length).toBeGreaterThanOrEqual(1);
+  });
 });

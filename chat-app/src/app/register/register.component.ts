@@ -14,6 +14,8 @@ export class RegisterComponent implements OnInit {
 
   groups: string[] = ['Angular', 'React', 'Vue'];
 
+
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -28,7 +30,7 @@ export class RegisterComponent implements OnInit {
     }
 
     this.error = '';
-    console.log(`Name: ${this.name} Group: ${this.group}`);
+    //console.log(`Name: ${this.name} Group: ${this.group}`);
 
     this.router.navigate(['/chat']);
   }
