@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { IChat } from '../model/chat.model';
 import { ChatService } from '../service/chat.service';
 
@@ -16,7 +17,9 @@ export class ChatComponent implements OnInit {
   constructor(private chatService: ChatService) { }
 
   ngOnInit(): void {
-    this.messages = this.chatService.getMessage();
+    this.chatService.getMessage().subscribe((data: IChat[]) => {
+      this.messages = data;
+    });
   }
 
   public sendMessage(): void {
